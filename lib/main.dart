@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'core/constants/app_strings.dart';
-import 'core/routes/app_pages.dart';
+import 'core/routes/app_routes.dart';
 import 'presentation/bindings/auth_bindings.dart';
 import 'firebase_options.dart';
 
@@ -23,11 +23,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: AppStrings.appName,
-      debugShowCheckedModeBanner: false,
-      initialBinding: AuthBinding(),
-      initialRoute: '/login',
-      getPages: AppPages.pages,
-    );
+        title: AppStrings.appName,
+        debugShowCheckedModeBanner: false,
+        initialBinding: AuthBinding(),
+        getPages: AppRoutes.appRoutes());
   }
 }

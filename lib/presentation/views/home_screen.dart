@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../core/routes/route_names.dart';
 import '../controllers/home_controller.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,7 +15,7 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.logout),
             onPressed: () {
-              Get.offAllNamed('/login');
+              Get.offAllNamed(RouteNames.loginScreen);
             },
           ),
         ],

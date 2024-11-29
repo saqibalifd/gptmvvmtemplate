@@ -1,3 +1,4 @@
+import 'package:chatgpttemplate/core/routes/route_names.dart';
 import 'package:get/get.dart';
 import '../../data/model/user_model.dart';
 import '../../data/repositories/auth_repository.dart';
@@ -14,7 +15,7 @@ class AuthController extends GetxController {
     try {
       final user = await _authRepository.loginWithEmail(email, password);
       if (user != null) {
-        Get.offAllNamed('/home');
+        Get.offAllNamed(RouteNames.homeScreen);
       }
     } catch (e) {
       Get.snackbar('Error', e.toString());
@@ -32,7 +33,7 @@ class AuthController extends GetxController {
         await _userRepository.addUser(
           UserModel(id: user.uid, name: name, email: email),
         );
-        Get.offAllNamed('/home');
+        Get.offAllNamed(RouteNames.homeScreen);
       }
     } catch (e) {
       Get.snackbar('Error', e.toString());
@@ -46,7 +47,7 @@ class AuthController extends GetxController {
     try {
       final user = await _authRepository.loginWithGoogle();
       if (user != null) {
-        Get.offAllNamed('/home');
+        Get.offAllNamed(RouteNames.homeScreen);
       }
     } catch (e) {
       Get.snackbar('Error', e.toString());

@@ -1,3 +1,4 @@
+import 'package:chatgpttemplate/core/routes/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/constants/app_strings.dart';
@@ -52,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {
-                            Get.toNamed('/signup');
+                            Get.toNamed(RouteNames.signupScreen);
                           },
                           child: Text(AppStrings.signup),
                         ),
