@@ -1,7 +1,8 @@
-import 'package:chatgpttemplate/presentation/controllers/feature_controller/user_profile_controller.dart';
+import 'package:chatgpttemplate/presentation/controllers/controllers_exports.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../core/constants/app_colors.dart';
+
+import '../../core/constants/constant_imports.dart';
 
 class ProfileScreen extends StatelessWidget {
   final UserProfileController _userProfileController =

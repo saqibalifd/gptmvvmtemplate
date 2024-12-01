@@ -1,5 +1,6 @@
-import 'package:chatgpttemplate/presentation/controllers/feature_controller/user_profile_controller.dart';
 import 'package:get/get.dart';
+
+import '../controllers/controllers_exports.dart';
 
 class ProfileBinding extends Bindings {
   @override

@@ -1,8 +1,8 @@
 import 'package:chatgpttemplate/core/routes/route_names.dart';
 import 'package:get/get.dart';
-import '../../../data/model/user_model.dart';
-import '../../../data/repositories/auth_repository.dart';
-import '../../../data/repositories/user_repository.dart';
+
+import '../../../data/model/model_imports.dart';
+import '../../../data/repositories/repositories_import.dart';
 
 class AuthController extends GetxController {
   final AuthRepository _authRepository = AuthRepository();

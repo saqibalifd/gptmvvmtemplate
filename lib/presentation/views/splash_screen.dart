@@ -1,8 +1,9 @@
 import 'dart:async';
 
-import 'package:chatgpttemplate/core/routes/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../core/routes/route_names.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

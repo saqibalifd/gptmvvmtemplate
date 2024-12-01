@@ -1,5 +1,6 @@
-import 'package:chatgpttemplate/presentation/controllers/feature_controller/todo_controller.dart';
 import 'package:get/get.dart';
+
+import '../controllers/controllers_exports.dart';
 
 class AddTodoBinding extends Bindings {
   @override

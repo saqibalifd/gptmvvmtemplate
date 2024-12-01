@@ -1,7 +1,8 @@
+import 'package:chatgpttemplate/presentation/controllers/controllers_exports.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../core/routes/route_names.dart';
-import '../controllers/feature_controller/home_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   final HomeController controller = Get.find<HomeController>();

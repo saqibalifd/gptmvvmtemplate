@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
-import '../../../data/model/todo_model.dart';
-import '../../../data/repositories/todo_repository.dart';
+
+import '../../../data/model/model_imports.dart';
+import '../../../data/repositories/repositories_import.dart';
 
 class TodoController extends GetxController {
   final TodoRepository _todoRepository = TodoRepository();
