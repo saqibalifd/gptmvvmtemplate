@@ -1,6 +1,7 @@
 import 'package:chatgpttemplate/core/theme/custom_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'core/constants/app_strings.dart';
@@ -27,14 +28,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeService themeService = ThemeService();
-
-    return GetMaterialApp(
-        title: AppStrings.appName,
-        darkTheme: CustomTheme.darkTheme,
-        theme: CustomTheme.lightTheme,
-        themeMode: themeService.themeMode,
-        debugShowCheckedModeBanner: false,
-        initialBinding: AuthBinding(),
-        getPages: AppRoutes.appRoutes());
+    return ScreenUtilInit(
+        designSize: const Size(430, 932),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (_, child) {
+          return GetMaterialApp(
+              title: AppStrings.appName,
+              darkTheme: CustomTheme.darkTheme,
+              theme: CustomTheme.lightTheme,
+              themeMode: themeService.themeMode,
+              debugShowCheckedModeBanner: false,
+              initialBinding: AuthBinding(),
+              getPages: AppRoutes.appRoutes());
+        });
   }
 }

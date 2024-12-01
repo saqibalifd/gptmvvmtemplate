@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppStrings.login),
+        title: const Text(AppStrings.login),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -24,17 +24,17 @@ class LoginScreen extends StatelessWidget {
           children: [
             TextField(
               controller: emailController,
-              decoration: InputDecoration(labelText: AppStrings.email),
+              decoration: const InputDecoration(labelText: AppStrings.email),
             ),
             TextField(
               controller: passwordController,
-              decoration: InputDecoration(labelText: AppStrings.password),
+              decoration: const InputDecoration(labelText: AppStrings.password),
               obscureText: true,
             ),
             const SizedBox(height: 20),
             Obx(() {
               return controller.isLoading.value
-                  ? Center(child: CircularProgressIndicator())
+                  ? const Center(child: CircularProgressIndicator())
                   : Column(
                       children: [
                         ElevatedButton(
@@ -44,19 +44,19 @@ class LoginScreen extends StatelessWidget {
                               passwordController.text.trim(),
                             );
                           },
-                          child: Text(AppStrings.login),
+                          child: const Text(AppStrings.login),
                         ),
                         ElevatedButton(
                           onPressed: () {
                             controller.loginWithGoogle();
                           },
-                          child: Text(AppStrings.googleSignIn),
+                          child: const Text(AppStrings.googleSignIn),
                         ),
                         TextButton(
                           onPressed: () {
                             Get.toNamed(RouteNames.signupScreen);
                           },
-                          child: Text(AppStrings.signup),
+                          child: const Text(AppStrings.signup),
                         ),
                       ],
                     );

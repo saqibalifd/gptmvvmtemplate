@@ -1,8 +1,12 @@
 import 'dart:async';
 
+import 'package:chatgpttemplate/core/animations/animation_imports.dart';
+import 'package:chatgpttemplate/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../core/constants/constant_imports.dart';
 import '../../core/routes/route_names.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,9 +19,8 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(AppDurations.splash, () {
       Get.toNamed(RouteNames.loginScreen);
     });
   }
@@ -25,8 +28,18 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.secondary,
       body: Center(
-        child: Text('Splash Screen'),
+        child: SlideAnimation(
+          direction: AxisDirection.right,
+          child: SizedBox(
+            height: 50.h,
+            child: Image.asset(
+              AppImages.logo,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
       ),
     );
   }

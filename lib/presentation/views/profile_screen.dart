@@ -39,20 +39,20 @@ class ProfileScreen extends StatelessWidget {
             children: [
               TextField(
                 controller: nameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Name',
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextField(
                 controller: emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Email',
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
                   final name = nameController.text.trim();

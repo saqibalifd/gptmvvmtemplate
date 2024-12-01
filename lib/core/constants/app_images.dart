@@ -1,6 +1,5 @@
 class AppImages {
-  static const String logo = 'assets/images/logo.png';
-  static const String background = 'assets/images/background.jpg';
-  static const String profilePlaceholder =
-      'assets/images/profile_placeholder.png';
+  static const String logo = 'assets/images/noteAppLogo.png';
+  static const String googleLog = 'assets/images/google.png';
+  static const String emptyBag = 'assets/images/emptyBag.png';
 }

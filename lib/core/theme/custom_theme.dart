@@ -4,8 +4,8 @@ import '../constants/app_colors.dart';
 class CustomTheme {
   static ThemeData lightTheme = ThemeData(
     primaryColor: AppColors.primary,
-    scaffoldBackgroundColor: AppColors.background,
-    appBarTheme: AppBarTheme(
+    scaffoldBackgroundColor: AppColors.primary,
+    appBarTheme: const AppBarTheme(
       color: AppColors.primary,
       iconTheme: IconThemeData(color: Colors.white),
       titleTextStyle: TextStyle(
@@ -14,23 +14,23 @@ class CustomTheme {
         fontWeight: FontWeight.bold,
       ),
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       bodyLarge:
           TextStyle(color: Colors.black, fontSize: 16), // Replaces bodyText1
       bodyMedium:
           TextStyle(color: Colors.black54, fontSize: 14), // Replaces bodyText2
     ),
-    buttonTheme: ButtonThemeData(
+    buttonTheme: const ButtonThemeData(
       buttonColor: AppColors.primary,
       textTheme: ButtonTextTheme.primary,
     ),
   );
 
   static ThemeData darkTheme = ThemeData(
-    primaryColor: AppColors.accent,
+    primaryColor: AppColors.primary,
     scaffoldBackgroundColor: Colors.black,
-    appBarTheme: AppBarTheme(
-      color: AppColors.accent,
+    appBarTheme: const AppBarTheme(
+      color: AppColors.primary,
       iconTheme: IconThemeData(color: Colors.white),
       titleTextStyle: TextStyle(
         color: Colors.white,
@@ -38,14 +38,14 @@ class CustomTheme {
         fontWeight: FontWeight.bold,
       ),
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       bodyLarge:
           TextStyle(color: Colors.white, fontSize: 16), // Replaces bodyText1
       bodyMedium:
           TextStyle(color: Colors.white70, fontSize: 14), // Replaces bodyText2
     ),
-    buttonTheme: ButtonThemeData(
-      buttonColor: AppColors.accent,
+    buttonTheme: const ButtonThemeData(
+      buttonColor: AppColors.blue,
       textTheme: ButtonTextTheme.primary,
     ),
   );
