@@ -2,7 +2,7 @@ import 'package:chatgpttemplate/core/routes/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/constants/app_strings.dart';
-import '../controllers/auth_controller.dart';
+import '../../controllers/feature_controller/auth_controller.dart';
 
 class LoginScreen extends StatelessWidget {
   final AuthController controller = Get.find<AuthController>();

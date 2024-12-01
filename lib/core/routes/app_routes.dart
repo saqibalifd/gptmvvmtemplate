@@ -1,4 +1,8 @@
 import 'package:chatgpttemplate/core/routes/route_names.dart';
+import 'package:chatgpttemplate/presentation/bindings/add_todo_binding.dart';
+import 'package:chatgpttemplate/presentation/bindings/profile_binding.dart';
+import 'package:chatgpttemplate/presentation/views/add_todo_screen.dart';
+import 'package:chatgpttemplate/presentation/views/profile_screen.dart';
 import 'package:chatgpttemplate/presentation/views/splash_screen.dart';
 import 'package:get/get.dart';
 
@@ -28,6 +32,16 @@ class AppRoutes {
           name: RouteNames.homeScreen,
           page: () => HomeScreen(),
           binding: HomeBinding(),
+        ),
+        GetPage(
+          name: RouteNames.addTodoScreen,
+          page: () => AddTodoScreen(),
+          binding: AddTodoBinding(),
+        ),
+        GetPage(
+          name: RouteNames.profileScreen,
+          page: () => ProfileScreen(),
+          binding: ProfileBinding(),
         ),
       ];
 }
