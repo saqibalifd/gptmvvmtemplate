@@ -1,4 +1,4 @@
-import 'package:chatgpttemplate/controllers/feature_controller/user_profile_controller.dart';
+import 'package:chatgpttemplate/presentation/controllers/feature_controller/user_profile_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/constants/app_colors.dart';

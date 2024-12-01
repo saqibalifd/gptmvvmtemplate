@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../data/model/todo_model.dart';
-import '../../controllers/feature_controller/todo_controller.dart';
+import '../controllers/feature_controller/todo_controller.dart';
 
 class AddTodoScreen extends StatelessWidget {
   final TodoController todoController = Get.find();

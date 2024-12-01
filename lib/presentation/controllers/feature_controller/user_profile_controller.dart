@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import '../../data/model/user_model.dart';
-import '../../data/repositories/user_repository.dart';
+import '../../../data/model/user_model.dart';
+import '../../../data/repositories/user_repository.dart';
 
 class UserProfileController extends GetxController {
   final UserRepository _userRepository = UserRepository();
