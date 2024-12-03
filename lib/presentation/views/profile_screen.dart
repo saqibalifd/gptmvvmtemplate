@@ -5,73 +5,46 @@ import 'package:get/get.dart';
 import '../../core/constants/constant_imports.dart';
 
 class ProfileScreen extends StatelessWidget {
-  final UserProfileController _userProfileController =
-      Get.find<UserProfileController>();
+  // ProfileScreen({super.key});
 
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
+  final UserProfileController userProfileController =
+      Get.put(UserProfileController());
 
   @override
   Widget build(BuildContext context) {
+    userProfileController.fetchCurrentUser();
+    print(
+        ' we will print there hehheheheh ${userProfileController.thisUser.first.name}');
+    final data = userProfileController.thisUser.first;
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Profile'),
-        backgroundColor: AppColors.primary,
-      ),
-      body: Obx(() {
-        if (_userProfileController.isLoading.value) {
-          return Center(child: CircularProgressIndicator());
-        }
-
-        final user = _userProfileController.currentUser.value;
-        if (user == null) {
-          return Center(child: Text('No user data found.'));
-        }
-
-        // Initialize controllers with user data
-        nameController.text = user.name;
-        emailController.text = user.email;
-
-        return Padding(
+        appBar: AppBar(
+          title: const Text('Profile'),
+          backgroundColor: AppColors.secondary,
+        ),
+        body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextField(
-                controller: nameController,
-                decoration: const InputDecoration(
-                  labelText: 'Name',
-                  border: OutlineInputBorder(),
-                ),
+              CircleAvatar(
+                  radius: 50,
+                  backgroundImage: NetworkImage(data.imageUrl != ''
+                      ? data.imageUrl
+                      : AppImages.dummyProfileNetwork)),
+              const SizedBox(height: 16),
+              Text(
+                data.name,
+                style: TextStyle(fontSize: 20),
               ),
               const SizedBox(height: 16),
-              TextField(
-                controller: emailController,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                  border: OutlineInputBorder(),
-                ),
+              Text(
+                data.email,
+                style: TextStyle(fontSize: 20),
               ),
               const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
-                  final name = nameController.text.trim();
-                  final email = emailController.text.trim();
-                  if (name.isEmpty || email.isEmpty) {
-                    Get.snackbar('Error', 'Name and email cannot be empty.');
-                    return;
-                  }
-                  _userProfileController.updateUserProfile(name, email);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                ),
-                child: Text('Update Profile'),
-              ),
             ],
           ),
-        );
-      }),
-    );
+        ));
   }
 }

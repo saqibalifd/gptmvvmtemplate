@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:chatgpttemplate/core/animations/animation_imports.dart';
-import 'package:chatgpttemplate/main.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -20,9 +20,16 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(AppDurations.splash, () {
+    Timer(AppDurations.splash, () => dashboardManagement());
+  }
+
+  void dashboardManagement() {
+    User? userCredential = FirebaseAuth.instance.currentUser;
+    if (userCredential != null) {
+      Get.toNamed(RouteNames.homeScreen);
+    } else {
       Get.toNamed(RouteNames.loginScreen);
-    });
+    }
   }
 
   @override

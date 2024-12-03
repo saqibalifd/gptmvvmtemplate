@@ -1,9 +1,11 @@
-import 'package:chatgpttemplate/presentation/controllers/controllers_exports.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../core/constants/constant_imports.dart';
 import '../../core/routes/route_names.dart';
+import '../controllers/controllers_exports.dart';
+import '../widgets/widgets_exports.dart';
 
 class LoginScreen extends StatelessWidget {
   final AuthController controller = Get.find<AuthController>();
@@ -18,9 +20,10 @@ class LoginScreen extends StatelessWidget {
         title: const Text(AppStrings.login),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(AppSizes.paddingSmall),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
               controller: emailController,
@@ -31,27 +34,21 @@ class LoginScreen extends StatelessWidget {
               decoration: const InputDecoration(labelText: AppStrings.password),
               obscureText: true,
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 50.h),
             Obx(() {
               return controller.isLoading.value
                   ? const Center(child: CircularProgressIndicator())
                   : Column(
                       children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            controller.loginWithEmail(
-                              emailController.text.trim(),
-                              passwordController.text.trim(),
-                            );
-                          },
-                          child: const Text(AppStrings.login),
+                        MainButtonWidget(
+                          buttonTitle: 'Login',
+                          onTap: () => _onEmailLoginTap(),
                         ),
-                        ElevatedButton(
-                          onPressed: () {
-                            controller.loginWithGoogle();
-                          },
-                          child: const Text(AppStrings.googleSignIn),
-                        ),
+                        SizedBox(height: 20.h),
+                        IconButtonWidget(
+                            onPressed: () => _onGoogleLoginTap(),
+                            labelText: 'Continue With Google',
+                            iconPath: AppImages.googleLogo),
                         TextButton(
                           onPressed: () {
                             Get.toNamed(RouteNames.signupScreen);
@@ -65,5 +62,16 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _onEmailLoginTap() {
+    controller.loginWithEmail(
+      emailController.text.trim(),
+      passwordController.text.trim(),
+    );
+  }
+
+  void _onGoogleLoginTap() {
+    controller.loginWithGoogle();
   }
 }

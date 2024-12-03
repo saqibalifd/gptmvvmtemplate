@@ -5,6 +5,7 @@ import '../controllers/controllers_exports.dart';
 class HomeBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => HomeController());
+    Get.lazyPut(() => TodoController());
+    Get.lazyPut(() => UserProfileController());
   }
 }

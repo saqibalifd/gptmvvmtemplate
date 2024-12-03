@@ -1,12 +1,13 @@
 import 'package:chatgpttemplate/core/routes/route_names.dart';
+import 'package:chatgpttemplate/presentation/controllers/controllers_exports.dart';
 import 'package:get/get.dart';
 
-import '../../../data/model/model_imports.dart';
 import '../../../data/repositories/repositories_import.dart';
 
 class AuthController extends GetxController {
   final AuthRepository _authRepository = AuthRepository();
-  final UserRepository _userRepository = UserRepository();
+  final UserProfileController _userProfileController =
+      Get.put(UserProfileController());
 
   RxBool isLoading = false.obs;
 
@@ -30,9 +31,7 @@ class AuthController extends GetxController {
     try {
       final user = await _authRepository.signUpWithEmail(email, password);
       if (user != null) {
-        await _userRepository.addUser(
-          UserModel(id: user.uid, name: name, email: email),
-        );
+        await _userProfileController.addUser(name, email, '');
         Get.offAllNamed(RouteNames.homeScreen);
       }
     } catch (e) {
@@ -51,6 +50,21 @@ class AuthController extends GetxController {
       }
     } catch (e) {
       Get.snackbar('Error', e.toString());
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  Future<void> logout() async {
+    isLoading.value = true;
+    try {
+      await _authRepository
+          .logout(); // Assuming the AuthRepository has a logout method
+      Get.offAllNamed(
+          RouteNames.loginScreen); // Navigate to the login screen after logout
+      Get.snackbar('Success', 'Logged out successfully');
+    } catch (e) {
+      Get.snackbar('Error', 'Logout failed: ${e.toString()}');
     } finally {
       isLoading.value = false;
     }

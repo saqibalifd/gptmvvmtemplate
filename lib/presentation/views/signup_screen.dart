@@ -1,5 +1,7 @@
 import 'package:chatgpttemplate/presentation/controllers/controllers_exports.dart';
+import 'package:chatgpttemplate/presentation/widgets/buttons/main_button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../core/constants/constant_imports.dart';
@@ -20,7 +22,8 @@ class SignupScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextField(
               controller: nameController,
@@ -35,24 +38,26 @@ class SignupScreen extends StatelessWidget {
               decoration: InputDecoration(labelText: AppStrings.password),
               obscureText: true,
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 50.h),
             Obx(() {
               return controller.isLoading.value
                   ? Center(child: CircularProgressIndicator())
-                  : ElevatedButton(
-                      onPressed: () {
-                        controller.signUpWithEmail(
-                          nameController.text.trim(),
-                          emailController.text.trim(),
-                          passwordController.text.trim(),
-                        );
-                      },
-                      child: Text(AppStrings.signup),
+                  : MainButtonWidget(
+                      buttonTitle: 'Signup',
+                      onTap: () => _onSignupTap(),
                     );
             }),
           ],
         ),
       ),
+    );
+  }
+
+  void _onSignupTap() {
+    controller.signUpWithEmail(
+      nameController.text.trim(),
+      emailController.text.trim(),
+      passwordController.text.trim(),
     );
   }
 }
