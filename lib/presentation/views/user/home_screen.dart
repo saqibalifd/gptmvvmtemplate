@@ -6,7 +6,7 @@ import 'package:chatgpttemplate/presentation/widgets/preview/drawer_preview.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/theme/theme_service.dart';
+import '../../../core/theme/theme_service.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

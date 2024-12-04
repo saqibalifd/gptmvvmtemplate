@@ -1,39 +1,9 @@
+import 'package:chatgpttemplate/core/theme/theme_text_style.dart';
 import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
 
-// class ColorStyle {
-//   final Color green;
-//   final Color red;
-//   final Color blue;
-//   final Color yellow;
-
-//   const ColorStyle({
-//     required this.green,
-//     required this.red,
-//     required this.blue,
-//     required this.yellow,
-//   });
-// }
-
-// extension CustomColorStyle on ThemeData {
-//   ColorStyle get colorStyle {
-//     if (brightness == Brightness.light) {
-//       return const ColorStyle(
-//         green: Colors.green,
-//         red: Colors.red,
-//         yellow: Colors.yellow,
-//         blue: Colors.blue,
-//       );
-//     } else {
-//       return const ColorStyle(
-//         green: Colors.lightGreen,
-//         red: Colors.redAccent,
-//         yellow: Colors.amber,
-//         blue: Colors.blue,
-//       );
-//     }
-//   }
-// }
+export 'theme_color.dart';
+export 'theme_text_style.dart';
 
 class CustomTheme {
   static ThemeData lightTheme = ThemeData(
@@ -61,26 +31,7 @@ class CustomTheme {
     ),
 
     // Text Theme
-    textTheme: const TextTheme(
-      titleLarge: TextStyle(
-          color: AppColors.secondary,
-          fontSize: 32,
-          fontWeight: FontWeight.bold),
-      titleMedium: TextStyle(
-          color: AppColors.secondary,
-          fontSize: 28,
-          fontWeight: FontWeight.bold),
-      titleSmall: TextStyle(
-          color: AppColors.secondary,
-          fontSize: 24,
-          fontWeight: FontWeight.bold),
-      bodyLarge: TextStyle(color: AppColors.secondary, fontSize: 16),
-      bodyMedium: TextStyle(color: Colors.black54, fontSize: 14),
-      bodySmall: TextStyle(color: Colors.black45, fontSize: 12),
-      labelLarge: TextStyle(color: AppColors.secondary, fontSize: 14),
-      labelMedium: TextStyle(color: Colors.black54, fontSize: 12),
-      labelSmall: TextStyle(color: Colors.black45, fontSize: 10),
-    ),
+    textTheme: ThemeTextStyle.lightTextTheme,
 
     // Button Theme
     buttonTheme: ButtonThemeData(
@@ -227,20 +178,7 @@ class CustomTheme {
     ),
 
     // Text Theme
-    textTheme: const TextTheme(
-      titleLarge: TextStyle(
-          color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
-      titleMedium: TextStyle(
-          color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold),
-      titleSmall: TextStyle(
-          color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
-      bodyLarge: TextStyle(color: Colors.white, fontSize: 16),
-      bodyMedium: TextStyle(color: Colors.white70, fontSize: 14),
-      bodySmall: TextStyle(color: Colors.white54, fontSize: 12),
-      labelLarge: TextStyle(color: Colors.white, fontSize: 14),
-      labelMedium: TextStyle(color: Colors.white70, fontSize: 12),
-      labelSmall: TextStyle(color: Colors.white54, fontSize: 10),
-    ),
+    textTheme: ThemeTextStyle.darkTextTheme,
 
     // Button Theme
     buttonTheme: ButtonThemeData(

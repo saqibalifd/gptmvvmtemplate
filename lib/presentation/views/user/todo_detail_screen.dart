@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../core/constants/constant_imports.dart';
+import '../../../core/constants/constant_imports.dart';
 
 class TodoDetailScreen extends StatelessWidget {
   TodoDetailScreen({super.key});
