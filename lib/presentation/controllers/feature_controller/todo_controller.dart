@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../../../core/utils/utils_imports.dart';
 import '../../../data/model/model_imports.dart';
 import '../../../data/repositories/repositories_import.dart';
 
@@ -10,7 +11,11 @@ class TodoController extends GetxController {
   final RxBool isLoading = false.obs;
 
   Future<void> addTodo(String title, String description) async {
-    await _todoRepository.addTodo(title, description);
+    try {
+      await _todoRepository.addTodo(title, description);
+    } catch (e) {
+      ToastUtil.showToast('Error ${e.toString()}');
+    }
   }
 
   // @override
@@ -21,11 +26,15 @@ class TodoController extends GetxController {
 
 //function to get data live stream like stream builder
   void fetchTodos() {
-    isLoading.value = true;
-    _todoRepository.fetchTodos().listen((fetchTodos) {
-      todosList.assignAll(fetchTodos);
-      isLoading.value = false;
-    });
+    try {
+      isLoading.value = true;
+      _todoRepository.fetchTodos().listen((fetchTodos) {
+        todosList.assignAll(fetchTodos);
+        isLoading.value = false;
+      });
+    } catch (e) {
+      ToastUtil.showToast('Error ${e.toString()}');
+    }
   }
 //function to get data like future builder
   // Future<void> fetchTodos() async {

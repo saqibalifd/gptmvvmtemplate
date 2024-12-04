@@ -17,11 +17,10 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text(data.name ?? ''),
-            accountEmail: Text(data.email ?? ''),
+            accountName: Text(data.name),
+            accountEmail: Text(data.email),
             currentAccountPicture: CircleAvatar(
-              backgroundImage:
-                  NetworkImage(data.imageUrl ?? AppImages.dummyProfileNetwork),
+              backgroundImage: NetworkImage(data.imageUrl),
               // child: Text(data.email),
               backgroundColor: AppColors.blue,
             ),

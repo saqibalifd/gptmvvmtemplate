@@ -1,4 +1,5 @@
 import 'package:chatgpttemplate/core/routes/route_names.dart';
+import 'package:chatgpttemplate/core/utils/toast_util.dart';
 import 'package:chatgpttemplate/presentation/controllers/controllers_exports.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +20,7 @@ class AuthController extends GetxController {
         Get.offAllNamed(RouteNames.homeScreen);
       }
     } catch (e) {
-      Get.snackbar('Error', e.toString());
+      ToastUtil.showToast('Error ${e.toString()}');
     } finally {
       isLoading.value = false;
     }
@@ -35,7 +36,7 @@ class AuthController extends GetxController {
         Get.offAllNamed(RouteNames.homeScreen);
       }
     } catch (e) {
-      Get.snackbar('Error', e.toString());
+      ToastUtil.showToast('Error ${e.toString()}');
     } finally {
       isLoading.value = false;
     }
@@ -49,7 +50,7 @@ class AuthController extends GetxController {
         Get.offAllNamed(RouteNames.homeScreen);
       }
     } catch (e) {
-      Get.snackbar('Error', e.toString());
+      ToastUtil.showToast('Error ${e.toString()}');
     } finally {
       isLoading.value = false;
     }
@@ -62,9 +63,9 @@ class AuthController extends GetxController {
           .logout(); // Assuming the AuthRepository has a logout method
       Get.offAllNamed(
           RouteNames.loginScreen); // Navigate to the login screen after logout
-      Get.snackbar('Success', 'Logged out successfully');
+      ToastUtil.showToast('Logged out successfully');
     } catch (e) {
-      Get.snackbar('Error', 'Logout failed: ${e.toString()}');
+      ToastUtil.showToast('Error ${e.toString()}');
     } finally {
       isLoading.value = false;
     }

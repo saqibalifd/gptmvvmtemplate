@@ -18,7 +18,7 @@ class UserRepository {
 
     await _firestore
         .collection('user_detail')
-        .doc(user!.uid)
+        .doc(user.uid)
         .set(userModel.toMap());
   }
 
