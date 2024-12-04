@@ -17,25 +17,25 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppStrings.signup),
+        title: const Text(AppStrings.signup),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(AppSizes.paddingSmall),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextField(
               controller: nameController,
-              decoration: InputDecoration(labelText: AppStrings.name),
+              decoration: const InputDecoration(labelText: AppStrings.name),
             ),
             TextField(
               controller: emailController,
-              decoration: InputDecoration(labelText: AppStrings.email),
+              decoration: const InputDecoration(labelText: AppStrings.email),
             ),
             TextField(
               controller: passwordController,
-              decoration: InputDecoration(labelText: AppStrings.password),
+              decoration: const InputDecoration(labelText: AppStrings.password),
               obscureText: true,
             ),
             SizedBox(height: 50.h),
@@ -43,7 +43,7 @@ class SignupScreen extends StatelessWidget {
               return controller.isLoading.value
                   ? Center(child: CircularProgressIndicator())
                   : MainButtonWidget(
-                      buttonTitle: 'Signup',
+                      buttonTitle: AppStrings.signup,
                       onTap: () => _onSignupTap(),
                     );
             }),

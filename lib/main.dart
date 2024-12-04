@@ -1,4 +1,4 @@
-import 'package:chatgpttemplate/core/theme/custom_theme.dart';
+import 'package:chatgpttemplate/core/theme/theme_data.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeService themeService = ThemeService();
+
     return ScreenUtilInit(
         designSize: const Size(430, 932),
         minTextAdapt: true,

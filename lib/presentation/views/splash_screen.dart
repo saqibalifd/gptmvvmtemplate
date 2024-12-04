@@ -20,6 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+
     Timer(AppDurations.splash, () => dashboardManagement());
   }
 
@@ -35,7 +36,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.secondary,
       body: Center(
         child: SlideAnimation(
           direction: AxisDirection.right,

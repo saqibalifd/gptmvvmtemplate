@@ -19,7 +19,7 @@ class AddTodoScreen extends StatelessWidget {
     final title = arguments['titleController'];
     final description = arguments['descriptionController'];
     return Scaffold(
-      appBar: AppBar(title: const Text('Add Todo')),
+      appBar: AppBar(title: const Text(AppStrings.addTodo)),
       body: Padding(
         padding: const EdgeInsets.all(AppSizes.paddingSmall),
         child: Column(
@@ -37,7 +37,7 @@ class AddTodoScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             MainButtonWidget(
-                buttonTitle: 'Add Todo',
+                buttonTitle: AppStrings.addTodo,
                 isLoading: false,
                 onTap: () {
                   print(type.toString());

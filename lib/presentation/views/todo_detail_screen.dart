@@ -1,3 +1,4 @@
+import 'package:chatgpttemplate/core/theme/theme_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -9,14 +10,15 @@ class TodoDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final arguments = Get.arguments;
     final title = arguments['title']; // the title of the todo
     final description = arguments['description']; // the description of the todo
     return Scaffold(
-      backgroundColor: AppColors.blue,
+      // Using titleLarge
+      backgroundColor: theme.colorStyle.detailBackground,
       appBar: AppBar(
-        title: const Text('Detail Screen'),
-        backgroundColor: AppColors.secondary,
+        title: const Text(AppStrings.detailScreen),
       ),
       body: Padding(
         padding: const EdgeInsets.all(AppSizes.paddingSmall),
@@ -26,16 +28,15 @@ class TodoDetailScreen extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  fontSize: AppSizes.fontLarge, fontWeight: FontWeight.bold),
             ),
             SizedBox(
               height: 10.h,
             ),
             Text(
               description,
-              style: TextStyle(
-                fontSize: 16,
-              ),
+              style: theme.textTheme.titleLarge, // Using titleLarge
             ),
           ],
         ),

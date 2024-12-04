@@ -15,50 +15,54 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(AppStrings.login),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(AppSizes.paddingSmall),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              controller: emailController,
-              decoration: const InputDecoration(labelText: AppStrings.email),
-            ),
-            TextField(
-              controller: passwordController,
-              decoration: const InputDecoration(labelText: AppStrings.password),
-              obscureText: true,
-            ),
-            SizedBox(height: 50.h),
-            Obx(() {
-              return controller.isLoading.value
-                  ? const Center(child: CircularProgressIndicator())
-                  : Column(
-                      children: [
-                        MainButtonWidget(
-                          buttonTitle: 'Login',
-                          onTap: () => _onEmailLoginTap(),
-                        ),
-                        SizedBox(height: 20.h),
-                        IconButtonWidget(
-                            onPressed: () => _onGoogleLoginTap(),
-                            labelText: 'Continue With Google',
-                            iconPath: AppImages.googleLogo),
-                        TextButton(
-                          onPressed: () {
-                            Get.toNamed(RouteNames.signupScreen);
-                          },
-                          child: const Text(AppStrings.signup),
-                        ),
-                      ],
-                    );
-            }),
-          ],
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(AppStrings.login),
+        ),
+        body: Padding(
+          padding: EdgeInsets.all(AppSizes.paddingSmall),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(
+                controller: emailController,
+                decoration: const InputDecoration(labelText: AppStrings.email),
+              ),
+              TextField(
+                controller: passwordController,
+                decoration:
+                    const InputDecoration(labelText: AppStrings.password),
+                obscureText: true,
+              ),
+              SizedBox(height: 50.h),
+              Obx(() {
+                return controller.isLoading.value
+                    ? const Center(child: CircularProgressIndicator())
+                    : Column(
+                        children: [
+                          MainButtonWidget(
+                            buttonTitle: AppStrings.login,
+                            onTap: () => _onEmailLoginTap(),
+                          ),
+                          SizedBox(height: 20.h),
+                          IconButtonWidget(
+                              onPressed: () => _onGoogleLoginTap(),
+                              labelText: AppStrings.continueWithGoogle,
+                              iconPath: AppImages.googleLogo),
+                          TextButton(
+                            onPressed: () {
+                              Get.toNamed(RouteNames.signupScreen);
+                            },
+                            child: const Text(AppStrings.signup),
+                          ),
+                        ],
+                      );
+              }),
+            ],
+          ),
         ),
       ),
     );
